@@ -1,2 +1,12 @@
-<h1> Order Fruits Online </h1>
-<sc-items></sc-items>
+<div id="header"> <h2> Yummy Fruits </h2> </div>
+<div id="content">
+    <div class = "welcome">
+        "We are so happy you are here. We founded Yummy Fruits because we wanted to create a trustworthy 
+        and inspiring place for you to find everything you need to eat and live well."
+    </div>
+    <div class = "welcome ceo">
+       - Sarath Nair (Founder)
+    </div>
+    <img class="banner" src="resources/images/fruits_banner.jpg">
+    <sc-items></sc-items>
+</div>
