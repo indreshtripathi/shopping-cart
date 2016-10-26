@@ -1,1 +1,8 @@
-Helooo World
+<span class="help-message"> 
+    Please select the items that you want and add them to your shopping cart. </br>
+    Once you are done, click the shopping cart to retrieve your order and checkout.
+</span>
+
+{{#items}}
+    <sc-food-item></sc-food-item>
+{{/items}}
