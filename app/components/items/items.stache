@@ -1,17 +1,39 @@
-<span class="help-message"> 
-    Please select the items that you want and add them to your shopping cart. </br>
-    Once you are done, click the shopping cart to retrieve your order and checkout.
-</span>
+{{#unless cartFlag}}
 
-<span class="help-message"> 
-    Search for a product: <input type="text" title="Press enter after typing search text" name="seachItem" {($value)}="searchText">
-</span>
+    <span class="help-message"> 
+        Please select the items that you want and add them to your shopping cart. </br>
+        Once you are done, click the shopping cart to retrieve your order and checkout.
+    </span>
+
+    <span class="help-message"> 
+        Search for a product: <input type="text" title="Press enter after typing search text" name="seachItem" {($value)}="searchText">
+    </span>
+{{/unless}}
 
 <div class="cart-header">
-    <div class="data">
-        {{cart.nItems}} items, <b>${{cart.totalPrice}}</b>
-    </div>
+    {{#if cartFlag}}
+        <a href="main.html#myanchor" class="data" can-click="toggleCart">
+            Continue Shopping
+        </a>
+    {{else}}
+        <a href="main.html#myanchor" class="data" can-click="toggleCart">
+            {{cart.nItems}} items, <b>${{cart.totalPrice}}</b>
+        </a>
+    {{/if}}    
 </div>
-{{#searchItems}}
-    <sc-food-item item={.}></sc-food-item>
-{{/searchItems}}
+
+{{#if cartFlag}}
+    {{#each cart.items}}
+        <sc-cart-item item={.}></sc-cart-item>
+    {{/each}}
+    <div class="cart-footer">
+        <div class = "total">
+            Total amount to be paid: <b>${{cart.totalPrice}}</b>
+        </div>
+    </div>
+{{else}}
+    {{#searchItems}}
+        <sc-food-item item={.}></sc-food-item>
+    {{/searchItems}}
+{{/if}}
+

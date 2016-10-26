@@ -1,11 +1,11 @@
 steal(
     'can',
     '../../../models/cart',
-    './food_item.stache!',
-    './food_item.less!',
+    './cart_item.stache!',
+    './cart_item.less!',
     function(can, Cart, InitView){
         return can.Component.extend({
-            tag: "sc-food-item",
+            tag: "sc-cart-item",
             template: InitView,
             viewModel: {
             },
@@ -16,8 +16,7 @@ steal(
                         "itemName": this.viewModel.attr('item.itemName'),
                         "price": this.viewModel.attr('item.price'),
                         "quantity": 1,
-                        "image": this.viewModel.attr('item.image'),
-                        "total": this.viewModel.attr('item.price')
+                        "image": this.viewModel.attr('item.image')
                     });
 
                     var cartItems = Cart.attr('items');
@@ -26,7 +25,6 @@ steal(
                     cartItems.each(function(element){
                         if(element.id === item.attr('id')){
                             element.attr('quantity', element.attr('quantity') + 1);
-                            element.attr('total', element.attr('quantity') * element.attr('price'));
                             found = true;
                             return false;
                         }

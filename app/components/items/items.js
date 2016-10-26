@@ -4,14 +4,13 @@ steal(
     './items.stache!',
     './items.less!',
     './food_item/food_item.js',
+    './cart_item/cart_item.js',
     function(can, Cart, InitView){
         return can.Component.extend({
             tag: "sc-items",
             template: InitView,
             viewModel: can.Map.extend({
                 define: {
-                    visible: {value: false},
-                    message: {value: "Hello There!"},
                     items: {
                         value: [
                             {
@@ -53,6 +52,9 @@ steal(
                     searchText: {
                         value: ""
                     },
+                    cartFlag : {
+                        value : false
+                    },
                     searchItems: {
                         get: function(){
                             var text = this.attr('searchText').trim().toLowerCase();
@@ -68,13 +70,20 @@ steal(
                     cart: {
                         get:function(){
                             return {
+                                "items": Cart.attr('items'),
                                 "nItems": Cart.attr('totalItems'),
                                 "totalPrice": Cart.attr('totalPrice')
                             };
                         }
                     }
+                },
+                toggleCart: function(){
+                    this.attr('cartFlag', !this.attr('cartFlag'));
                 }
-            })
+            }),
+            events: {
+                
+            }
         });
     }
 );

@@ -11,7 +11,7 @@ steal(
                 get: function(){
                     var total = 0;
                     this.attr('items').forEach(function(item){
-                        total += item.quantity;
+                        total += item.attr('quantity');
                     })
                     return total;
                 }
@@ -20,7 +20,7 @@ steal(
                 get: function(){
                     var total = 0;
                     this.attr('items').forEach(function(item){
-                        total += (item.quantity * item.price);
+                        total += (item.attr('quantity') * item.attr('price'));
                     })
                     return total;
                 }
