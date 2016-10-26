@@ -1,16 +1,14 @@
 <div class="food-item">
-    <img width="100" height="100" src={{image}}>
-    <h3>{{itemName}}</h3>
+    <img width="100" height="100" src={{image}}>    
     <div class="description">
+        <h3>{{itemName}}</h3>
         {{description}}
     </div>
 
-    <div class="price">
-        {{price}}
+    <div class="cart-section">
+        <button class="add-to-cart">
+            <div class="title">Add to cart | ${{price}}</div>
+        </button>
     </div>
-
-    <a class="btn" href="/restaurants/cheese-curd-city">
-        Add to Cart
-    </a>
     <br>
 </div>
