@@ -4,10 +4,14 @@
 </span>
 
 <span class="help-message"> 
-    Search for a product: <input type="text" name="seachItem" {($value)}="searchText">
+    Search for a product: <input type="text" title="Press enter after typing search text" name="seachItem" {($value)}="searchText">
 </span>
 
-
+<div class="cart-header">
+    <div class="data">
+        {{cart.nItems}} items, <b>${{cart.totalPrice}}</b>
+    </div>
+</div>
 {{#searchItems}}
     <sc-food-item item={.}></sc-food-item>
 {{/searchItems}}

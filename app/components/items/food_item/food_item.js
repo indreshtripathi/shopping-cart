@@ -8,9 +8,6 @@ steal(
             tag: "sc-food-item",
             template: InitView,
             viewModel: {
-                addToCart: function(el, ev, item){
-                    console.error(el, ev, item);
-                }
             },
             events: {
                 '.add-to-cart click': function(el, ev){
@@ -35,8 +32,6 @@ steal(
                     if(!found){
                         Cart.attr('items').push(item);
                     }
-                    
-                    console.error(Cart.attr('items'));
                 }
             }
         });

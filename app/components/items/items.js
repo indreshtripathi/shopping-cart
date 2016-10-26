@@ -1,9 +1,10 @@
 steal(
     'can',
+    '../../models/cart',
     './items.stache!',
     './items.less!',
     './food_item/food_item.js',
-    function(can, InitView){
+    function(can, Cart, InitView){
         return can.Component.extend({
             tag: "sc-items",
             template: InitView,
@@ -61,17 +62,19 @@ steal(
                                 });
                             }else {
                                 return this.attr('items');
-                            }
-                            
+                            }                            
+                        }
+                    },
+                    cart: {
+                        get:function(){
+                            return {
+                                "nItems": Cart.attr('totalItems'),
+                                "totalPrice": Cart.attr('totalPrice')
+                            };
                         }
                     }
                 }
-                
-               
-            }),
-            events: {
-
-            }
+            })
         });
     }
 );
